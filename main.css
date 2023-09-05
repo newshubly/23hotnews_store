@@ -1,0 +1,6 @@
+section aside {
+    margin: 0.5rem;
+    padding: 0.5rem;
+    --width-card: 85%;
+    margin-bottom: 0.1rem;
+}
