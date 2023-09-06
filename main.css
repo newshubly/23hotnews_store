@@ -10,15 +10,19 @@ section aside {
 .site {
     margin: 0rem;
 }
-.info{
+
+.info {
     float: right;
 }
 
-/* 
- {
-    margin: 0.1rem;
+.ui-btn-top {
+    position: fixed;
+    bottom: 20px;
+    right: 5px;
 }
 
- {
-    margin: 0.1rem;
-} */
+.ui-btn-end {
+    position: fixed;
+    bottom: 60px;
+    right: 5px;
+}
