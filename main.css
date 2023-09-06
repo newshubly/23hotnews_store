@@ -34,4 +34,8 @@ header {
 
 nav {
     margin-bottom: 0px;
+    float: right;
+}
+section{
+    width: 100%;
 }
