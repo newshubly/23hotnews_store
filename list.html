@@ -69,7 +69,7 @@
                 var news_list = data.split('\n').map(JSON.parse);
                 console.log(news_list);
                 news_list.forEach(function (item, i) {
-                    var card = "<aside><h3><a href='" + item.link + "'>" + item.title + "</a></h3>";
+                    var card = "<aside><h3><a href='" + item.link + "' target='_blank'>" + item.title + "</a></h3>";
                     // <p>" + item.summary + "</p>"
                     // + "<p>" + item.published_my + "</p>" +
                     // +"<small><p>" + item.label + "</small></p>" +
@@ -85,7 +85,9 @@
                         card += "<small><p>" + item.label + "</small></p>";
                     }
                     if (isNaN(item.site)) {
-                        card += "<small><p>" + item.site + "</small></p>";
+                        if (item.site != item.label) {
+                            card += "<small><p>" + item.site + "</small></p>";
+                        }
                     }
                     // console.log(i);
                     // console.log(typeof(item))
