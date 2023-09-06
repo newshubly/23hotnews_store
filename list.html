@@ -17,13 +17,24 @@
 
 <body>
     <main>
-        <hr>
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="list.html">Home</a></li>
+                    <li><a href="#section-1">News</a></li>
+                    <li><a href="#">TodayNews</a>
+                        <ul id="todaylist">
+                            <li><a href="#">Sublink with a long name</a></li>
+                            <li><a href="#">Short sublink</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <!-- <section id="sidebar"></section> -->
+            <!-- <h2>Section Heading</h2> -->
+            <!-- <p>Section Subheading</p> -->
+        </header>
         <section id="section-1">
-            <header>
-                <section id="sidebar"></section>
-                <!-- <h2>Section Heading</h2> -->
-                <!-- <p>Section Subheading</p> -->
-            </header>
             <!-- <aside>
                 <h3>Card heading</h3>
                 <p>Card content <sup>with notification</sup></p>
@@ -49,7 +60,7 @@
             </aside>
         </article>
         <button type="button" class="btn btn-info ui-btn-top">
-            <span class="glyphicon glyphicon-arrow-up"></span>UP 
+            <span class="glyphicon glyphicon-arrow-up"></span>UP
         </button>
         <button type="button" class="btn btn-info ui-btn-end">
             <span class="glyphicon glyphicon-arrow-up"></span>END
@@ -167,15 +178,16 @@
             });
         });
         function genTodayListToSidebar(queryd) {
-            $('#sidebar').append("<details id='todaylist'><summary>本日熱門</summary></details>");
-            var todaydiv = $("#todaylist");;
+            // $('#sidebar').append("<details id='todaylist'><summary>本日熱門</summary></details>");
+            var todaydiv = $("#todaylist");
             //20181012_01
             for (i = 0; i < 24; i++) {
                 var link = window.location.pathname + "?d=" + queryd.slice(0, 8) + "_" + (i < 10 ? "0" + i : i);
                 var text = queryd.slice(0, 4) + '-' + queryd.slice(4, 6) + '-' + queryd.slice(6, 8) + " " + (i < 10 ? "0" + i : i);
-                todaydiv.append("<p><a href='" + link + "'>" + text + "</p>");
+                // todaydiv.append("<p><a href='" + link + "'>" + text + "</p>");
+                todaydiv.append("<li><a href='" + link + "'>" + text + "</a></li>");
             }
-            $('#sidebar').append(todaydiv);
+            // $('#sidebar').append(todaydiv);
 
         }
     </script>

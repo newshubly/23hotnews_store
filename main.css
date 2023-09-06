@@ -26,3 +26,12 @@ section aside {
     bottom: 60px;
     right: 5px;
 }
+
+header {
+    padding-bottom: 0px;
+
+}
+
+nav {
+    margin-bottom: 0px;
+}
