@@ -24,8 +24,6 @@
                     <li><a href="#section-1">News</a></li>
                     <li><a href="#">TodayNews</a>
                         <ul id="todaylist">
-                            <li><a href="#">Sublink with a long name</a></li>
-                            <li><a href="#">Short sublink</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -52,13 +50,6 @@
                 <p>Card content</p>
             </aside> -->
         </section>
-        <hr>
-        <article>
-            <aside>
-                <h3>Card heading</h3>
-                <p>Card content</p>
-            </aside>
-        </article>
         <button type="button" class="btn btn-info ui-btn-top">
             <span class="glyphicon glyphicon-arrow-up"></span>UP
         </button>
@@ -67,10 +58,10 @@
         </button>
     </main>
     <footer>
-        <hr>
+        <!-- <hr>
         <p>
             <small>Contact info</small>
-        </p>
+        </p> -->
     </footer>
     <script type="text/javascript">
         function getUrlParameter(name) {
@@ -82,6 +73,8 @@
         (function () {
             var date = new Date();
             date.setMinutes(date.getMinutes() - 66);
+            var current_d = dateToYMD(date).slice(-11);
+            console.log("current", current_d);
             if (getUrlParameter('d')) {
                 var queryd = getUrlParameter('d');
                 var url = geturl(queryd.slice(0, 4) + '/' + queryd.slice(4, 6) + '/' + queryd.slice(6, 8) + '/' + queryd);
@@ -92,7 +85,7 @@
             // var url = geturl(dateToYMD(date));
             console.log(url);
             console.log(queryd);
-            genTodayListToSidebar(queryd);
+            genTodayListToSidebar(current_d);
             $.get(url, function (data, status) {
                 var news_list = data.split('\n').map(JSON.parse);
                 // console.log(news_list);
@@ -182,10 +175,14 @@
             var todaydiv = $("#todaylist");
             //20181012_01
             for (i = 0; i < 24; i++) {
-                var link = window.location.pathname + "?d=" + queryd.slice(0, 8) + "_" + (i < 10 ? "0" + i : i);
+                var d = queryd.slice(0, 8) + "_" + (i < 10 ? "0" + i : i);
+                var link = window.location.pathname + "?d=" + d;
                 var text = queryd.slice(0, 4) + '-' + queryd.slice(4, 6) + '-' + queryd.slice(6, 8) + " " + (i < 10 ? "0" + i : i);
                 // todaydiv.append("<p><a href='" + link + "'>" + text + "</p>");
                 todaydiv.append("<li><a href='" + link + "'>" + text + "</a></li>");
+                if (queryd == d) {
+                    break
+                }
             }
             // $('#sidebar').append(todaydiv);
 
