@@ -74,21 +74,23 @@
                     // + "<p>" + item.published_my + "</p>" +
                     // +"<small><p>" + item.label + "</small></p>" +
                     // + "</aside>";
-
+                    
                     if (isNaN(item.summary)) {
                         card += "<p>" + item.summary + "</p>";
                     }
+                    card+="<div class='info'>";
                     if (isNaN(item.published_my)) {
-                        card += "<p>" + item.published_my + "</p>";
+                        card += "<p class='published_my'>" + item.published_my + "</p>";
                     }
                     if (isNaN(item.label)) {
-                        card += "<small><p>" + item.label + "</small></p>";
+                        card += "<small><p class='label'>" + item.label + "</small></p>";
                     }
                     if (isNaN(item.site)) {
                         if (item.site != item.label) {
-                            card += "<small><p>" + item.site + "</small></p>";
+                            card += "<small><p class='site'>" + item.site + "</small></p>";
                         }
                     }
+                    card+="</div>";
                     // console.log(i);
                     // console.log(typeof(item))
                     console.log(item);

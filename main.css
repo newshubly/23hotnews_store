@@ -4,3 +4,21 @@ section aside {
     --width-card: 85%;
     margin-bottom: 0.1rem;
 }
+
+.published_my,
+.label,
+.site {
+    margin: 0rem;
+}
+.info{
+    float: right;
+}
+
+/* 
+ {
+    margin: 0.1rem;
+}
+
+ {
+    margin: 0.1rem;
+} */
